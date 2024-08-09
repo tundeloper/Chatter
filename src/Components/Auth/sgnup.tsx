@@ -3,10 +3,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 
-export default function FormPropsTextFields() {
-  const clickHandler = () => {}
-  return (
-    <Box
+
+const FormPropsTextFields = () => {
+  return(  <Box
       component="form"
       sx={{
         '& .MuiTextField-root': { m: 1, width: '25ch', marginLeft: '5%'},
@@ -52,9 +51,10 @@ export default function FormPropsTextFields() {
         />
         <div style={{display: 'flex', marginLeft: '5%', justifyContent: 'space-between', alignItems: 'center', width: '90%'}}>
           <p>Already have an account? </p>
-          <Link to='/login'>signIn</Link>
+          <Link to='/login'style={{textDecoration: 'none  '}} >Sign In</Link>
         </div>
-        <button onClick={clickHandler} style={{width: '90%', color: 'white', background: 'blue', marginLeft: '5%', marginTop: '.5rem', border: 'none', borderRadius: '2rem', padding: '.5rem', cursor: 'pointer'}}>SignUp</button>
-          </Box>
-  )
+        <button style={{width: '90%', color: 'white', background: 'blue', marginLeft: '5%', marginTop: '.5rem', border: 'none', borderRadius: '2rem', padding: '.5rem', cursor: 'pointer'}}>SignUp</button>
+          </Box>)
 }
+
+export default FormPropsTextFields
