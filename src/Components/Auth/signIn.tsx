@@ -1,6 +1,5 @@
 // src/Home.tsx
 import React, { useEffect, useState } from 'react';
-import FormPropsTextFields from './sgnup';
 import { Box, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { onAuthStateChanged} from 'firebase/auth';
@@ -36,13 +35,14 @@ const SignIn: React.FC = () => {
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [auth]);
+  }, []);
   
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
     console.log(userData)
     signIn(userData.email, userData.password)
     console.log(user)
+    console.log(auth)
   }
 
   return <div style={{display: 'flex', justifyContent:'space-between'}}>

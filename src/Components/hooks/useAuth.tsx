@@ -1,6 +1,6 @@
 // useAuth.ts
 import { useState} from 'react';
-import { User, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 
 const useAuth = () => {
