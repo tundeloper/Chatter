@@ -1,6 +1,8 @@
+import TextEditor from "./editot"
+
 const Write =  () => {
     return (<div>
-        Write
+        <TextEditor />
     </div>)
 }
 

@@ -1,20 +1,11 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
-const App: React.FC = ({}) => {
+const App: React.FC = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/Auth">SignUp</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
-      <Outlet />
+    <div style={{background: 'blue', marginTop: '-.1rem', height: '100vh', display: 'flex', justifyContent: 'center',alignItems: 'center', flexDirection: 'column'}}>
+      <h1 style={{fontFamily: "Playwrite HU", fontSize: '4rem', color: 'white'}}>Chatter</h1>
+      <Link to='/auth' style={{color: 'white'}}>get Started with chatter</Link>
     </div>
   );
 };

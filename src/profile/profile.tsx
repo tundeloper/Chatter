@@ -1,14 +1,33 @@
 import StyledNav from "./styledProfile"
 import { StyledUser } from "./user"
-import CommentTwoToneIcon from '@mui/icons-material/CommentTwoTone';
+// import CommentTwoToneIcon from '@mui/icons-material/CommentTwoTone';
 import NotificationsIcon from '@mui/icons-material/Notifications';import WriteSVG from '../SVGs/writeSVG'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase-config";
+// import useAuth from "../Components/hooks/useAuth";
+import { signOut } from "firebase/auth";
+import useAuth from "../Components/hooks/useAuth";
+// import { NavLink } from "react-router-dom";
 
 const Profile = () => {
+    const user = useAuth()
+    const navigation = useNavigate()
+
+    
+    const signOutHandler = async () => {
+    navigation('/login')
+        try {
+            signOut(auth)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     return(<div><div style={{padding: '.5rem', background: 'blue'}}>
         <StyledNav>
             <StyledUser />
@@ -46,9 +65,11 @@ const Profile = () => {
                 <FavoriteIcon style={{color: 'white'}}/> <RemoveRedEyeIcon  style={{color: 'white'}} /> <InsertCommentIcon  style={{color: 'white'}} /> <BookmarkIcon  style={{color: 'white'}} />
             </div>
         </div>
-        
+        <h1>{user?.email}</h1>
+        <button onClick={signOutHandler}>Sign out</button>
         </div>
     )
 }
 
 export default Profile
+
